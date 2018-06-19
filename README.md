@@ -1,3 +1,3 @@
 # ORPI
 
-Web project with Angular 6 and Asp.Core 2.1.
+Web project with Angular 6 and Asp.Net Core 2.1.
