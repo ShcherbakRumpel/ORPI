@@ -1,0 +1,9 @@
+C:\Users\Rumpel\Documents\99mnds\ORPI\ORPI.Web\ORPI.DAL\bin\Debug\netcoreapp2.0\ORPI.DAL.deps.json
+C:\Users\Rumpel\Documents\99mnds\ORPI\ORPI.Web\ORPI.DAL\bin\Debug\netcoreapp2.0\ORPI.DAL.dll
+C:\Users\Rumpel\Documents\99mnds\ORPI\ORPI.Web\ORPI.DAL\bin\Debug\netcoreapp2.0\ORPI.DAL.pdb
+C:\Users\Rumpel\Documents\99mnds\ORPI\ORPI.Web\ORPI.DAL\obj\Debug\netcoreapp2.0\ORPI.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Rumpel\Documents\99mnds\ORPI\ORPI.Web\ORPI.DAL\obj\Debug\netcoreapp2.0\ORPI.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Rumpel\Documents\99mnds\ORPI\ORPI.Web\ORPI.DAL\obj\Debug\netcoreapp2.0\ORPI.DAL.AssemblyInfoInputs.cache
+C:\Users\Rumpel\Documents\99mnds\ORPI\ORPI.Web\ORPI.DAL\obj\Debug\netcoreapp2.0\ORPI.DAL.AssemblyInfo.cs
+C:\Users\Rumpel\Documents\99mnds\ORPI\ORPI.Web\ORPI.DAL\obj\Debug\netcoreapp2.0\ORPI.DAL.dll
+C:\Users\Rumpel\Documents\99mnds\ORPI\ORPI.Web\ORPI.DAL\obj\Debug\netcoreapp2.0\ORPI.DAL.pdb
