@@ -7,3 +7,12 @@ C:\Users\Rumpel\Documents\99mnds\ORPI\ORPI.Web\ORPI.BL\obj\Debug\netcoreapp2.0\O
 C:\Users\Rumpel\Documents\99mnds\ORPI\ORPI.Web\ORPI.BL\obj\Debug\netcoreapp2.0\ORPI.BL.AssemblyInfo.cs
 C:\Users\Rumpel\Documents\99mnds\ORPI\ORPI.Web\ORPI.BL\obj\Debug\netcoreapp2.0\ORPI.BL.dll
 C:\Users\Rumpel\Documents\99mnds\ORPI\ORPI.Web\ORPI.BL\obj\Debug\netcoreapp2.0\ORPI.BL.pdb
+E:\Freelance\ORPI-master\ORPI\ORPI.Web\ORPI.BL\bin\Debug\netcoreapp2.0\ORPI.BL.deps.json
+E:\Freelance\ORPI-master\ORPI\ORPI.Web\ORPI.BL\bin\Debug\netcoreapp2.0\ORPI.BL.dll
+E:\Freelance\ORPI-master\ORPI\ORPI.Web\ORPI.BL\bin\Debug\netcoreapp2.0\ORPI.BL.pdb
+E:\Freelance\ORPI-master\ORPI\ORPI.Web\ORPI.BL\obj\Debug\netcoreapp2.0\ORPI.BL.csprojResolveAssemblyReference.cache
+E:\Freelance\ORPI-master\ORPI\ORPI.Web\ORPI.BL\obj\Debug\netcoreapp2.0\ORPI.BL.csproj.CoreCompileInputs.cache
+E:\Freelance\ORPI-master\ORPI\ORPI.Web\ORPI.BL\obj\Debug\netcoreapp2.0\ORPI.BL.AssemblyInfoInputs.cache
+E:\Freelance\ORPI-master\ORPI\ORPI.Web\ORPI.BL\obj\Debug\netcoreapp2.0\ORPI.BL.AssemblyInfo.cs
+E:\Freelance\ORPI-master\ORPI\ORPI.Web\ORPI.BL\obj\Debug\netcoreapp2.0\ORPI.BL.dll
+E:\Freelance\ORPI-master\ORPI\ORPI.Web\ORPI.BL\obj\Debug\netcoreapp2.0\ORPI.BL.pdb

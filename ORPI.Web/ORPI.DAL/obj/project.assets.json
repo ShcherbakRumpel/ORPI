@@ -664,7 +664,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rumpel\\.nuget\\packages\\": {},
+    "C:\\Users\\starv\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
@@ -674,18 +674,18 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rumpel\\Documents\\99mnds\\Новая папка\\ORPI.Web\\ORPI.DAL\\ORPI.DAL.csproj",
+      "projectUniqueName": "E:\\Freelance\\ORPI-master\\ORPI\\ORPI.Web\\ORPI.DAL\\ORPI.DAL.csproj",
       "projectName": "ORPI.DAL",
-      "projectPath": "C:\\Users\\Rumpel\\Documents\\99mnds\\Новая папка\\ORPI.Web\\ORPI.DAL\\ORPI.DAL.csproj",
-      "packagesPath": "C:\\Users\\Rumpel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rumpel\\Documents\\99mnds\\Новая папка\\ORPI.Web\\ORPI.DAL\\obj\\",
+      "projectPath": "E:\\Freelance\\ORPI-master\\ORPI\\ORPI.Web\\ORPI.DAL\\ORPI.DAL.csproj",
+      "packagesPath": "C:\\Users\\starv\\.nuget\\packages\\",
+      "outputPath": "E:\\Freelance\\ORPI-master\\ORPI\\ORPI.Web\\ORPI.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Rumpel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\starv\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
