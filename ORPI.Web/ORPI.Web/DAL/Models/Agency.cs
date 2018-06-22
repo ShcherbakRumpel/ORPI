@@ -47,5 +47,7 @@ namespace ORPI.Web.DAL.Models
         public String Null08 { get; set; }//NULL08
         public String Null09 { get; set; }//NULL09
         public String Null10 { get; set; }//NULL10
+
+        public virtual ICollection<AdFile> AdFiles { get; set; }
     }
 }

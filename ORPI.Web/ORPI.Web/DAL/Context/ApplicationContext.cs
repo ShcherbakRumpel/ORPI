@@ -17,6 +17,7 @@ namespace ORPI.Web.DAL.Context
         }
 
         public DbSet<Agency> Agency { get; set; }
+        public DbSet<AdFile> AdFile { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

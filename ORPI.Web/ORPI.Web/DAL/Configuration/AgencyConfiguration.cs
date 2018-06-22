@@ -12,7 +12,11 @@ namespace ORPI.Web.DAL.Configuration
     {
         public void Configure(EntityTypeBuilder<Agency> builder)
         {
-            builder.HasKey(s => new { s.OpriId });
+            builder.HasKey(s => new { s.AgencyId });
+
+            builder.HasMany(s => s.AdFiles)
+                .WithOne(s => s.Agency)
+                .HasForeignKey(s => s.AgencyId);
         }
     }
 }
