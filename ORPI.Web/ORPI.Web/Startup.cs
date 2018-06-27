@@ -9,8 +9,12 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ORPI.Web.BL.ServiceInterface;
+using ORPI.Web.BL.Services;
 using ORPI.Web.DAL.Context;
 using ORPI.Web.DAL.Models;
+using ORPI.Web.Repository.Abstract;
+using ORPI.Web.Repository.Concrete;
 
 namespace ORPI.Web
 {
@@ -31,6 +35,12 @@ namespace ORPI.Web
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>();
+
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<IAgencyRepository, AgencyRepository>();
+            services.AddSingleton<IAdFileRepository, AdFileRepository>();
+            services.AddTransient<IAgencyService, AgencyService>();
+
 
             services.AddMvc();
         }

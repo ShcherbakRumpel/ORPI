@@ -18,14 +18,17 @@ namespace ORPI.Web.Repository.Concrete
             _dbSet = context.Set<TEntity>();
         }
 
-        public IEnumerable<TEntity> Get()
+        public IQueryable<TEntity> Query
         {
-            return _dbSet.AsNoTracking().ToList();
+            get
+            {
+                return _dbSet;
+            }
         }
 
         public IEnumerable<TEntity> Get(Func<TEntity, bool> predicate)
         {
-            return _dbSet.AsNoTracking().Where(predicate).ToList();
+            return _dbSet.Where(predicate).ToList();
         }
         public TEntity FindById(int id)
         {
@@ -35,17 +38,17 @@ namespace ORPI.Web.Repository.Concrete
         public void Create(TEntity item)
         {
             _dbSet.Add(item);
-            _context.SaveChanges();
+            //_context.SaveChanges();
         }
         public void Update(TEntity item)
         {
             _context.Entry(item).State = EntityState.Modified;
-            _context.SaveChanges();
+            //_context.SaveChanges();
         }
         public void Remove(TEntity item)
         {
             _dbSet.Remove(item);
-            _context.SaveChanges();
+            //_context.SaveChanges();
         }
     }
 }

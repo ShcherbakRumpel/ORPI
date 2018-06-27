@@ -1,0 +1,16 @@
+﻿using Microsoft.EntityFrameworkCore;
+using ORPI.Web.Repository.Abstract;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ORPI.Web.Repository.Concrete
+{
+    public class AdFileRepository : EFGenericRepository<AdFileRepository>, IAdFileRepository
+    {
+        public AdFileRepository(DbContext context) : base(context)
+        {
+        }
+    }
+}
