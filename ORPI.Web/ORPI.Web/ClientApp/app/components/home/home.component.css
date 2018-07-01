@@ -1,0 +1,29 @@
+﻿
+.bg-img {
+    margin-top:-700px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+    .bg-img .overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        opacity: .8;
+        background: #1C1D21;
+    }
+
+.bgimg {
+    background-image: url('http://localhost:52112/img/background_image_home.jpg');
+    width: 100%;
+    height:100%/3px;
+}
