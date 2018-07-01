@@ -5,31 +5,25 @@ using System.Text;
 using System.IO.Compression;
 using static System.Net.Mime.MediaTypeNames;
 using ORPI.Web.BL.Const;
+using System.Threading;
 
 namespace ORPI.Web.BL
 {
     public class FTPConnectionManager
     {
-        //private FtpWebRequest request;
-        //private string _txtFilePath;
+        private Object lockObj = new Object();
 
-        //public String GetFileByPath
-        //{
-        //    get
-        //    {
-        //        return _txtFilePath;
-        //    }
-        //}
-        public FTPConnectionManager(string UrlToZipFile)
+        public FTPConnectionManager(string urlToZipFile)
         {
             // Get the object used to communicate with the server.  
-            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(UrlToZipFile);
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(urlToZipFile);
             request.Method = WebRequestMethods.Ftp.DownloadFile;
 
             // This example assumes the FTP site uses anonymous logon.  
             request.Credentials = new NetworkCredential("HASITATION050207", "050207HASITATION");
-            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
 
+            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+            
             DownloadFile(response.ResponseUri.AbsoluteUri);
             //Decompress("C:/Users/Rumpel/source/repos/ConsoleApp2/ConsoleApp2/bin/Debug/result.zip"); //use another path
             Decompress(PathConst.SOURCE);
@@ -43,6 +37,7 @@ namespace ORPI.Web.BL
             myWebClient.Credentials = new NetworkCredential("HASITATION050207", "050207HASITATION");
             //myStringWebResource = url;
             myWebClient.DownloadFile(url, "result.zip");
+
             //Decompress(response.ResponseUri.AbsoluteUri);
 
         }

@@ -7,9 +7,14 @@ namespace ORPI.Web.BL.Const
 {
     public static class PathConst
     {
-        public static String TXTFILEPATH = @"C:\Users\Rumpel\Desktop\1";//use another path
-        public static String SOURCE = "C:/Users/Rumpel/source/repos/ConsoleApp2/ConsoleApp2/bin/Debug/result.zip";  //use another path
-        public static String AGENCY = "ftp://ftp.orpi.coop/agences_orpi_national_201703.zip";
-        public static String ADFILE = "ftp://ftp.orpi.coop/biens_orpi_national_201703.zip";
+        //public static String TXTFILEPATH = @"C:\Users\Rumpel\Desktop\1";//use another path
+        //public static String SOURCE = "C:/Users/Rumpel/source/repos/ConsoleApp2/ConsoleApp2/bin/Debug/result.zip";  //use another path
+        public static String TXTFILEPATH = @"E:\Freelance\ORPI-master\txtFile";//use another path
+        public static String SOURCE = @"E:\Freelance\ORPI-master\ORPI\ORPI.Web\ORPI.Web\result.zip";  //use another path
+        public static String AGENCY = "agences_orpi_gie_201703.txt";
+        public static String ADFILE = "biens_orpi_gie_201703.txt";
+        public static String AGENCYZIP = "agences_orpi_gie_201703.zip";
+        public static String ADFILEZIP = "biens_orpi_gie_201703.zip";
+        public static String ORPI = "ftp://ftp.orpi.coop/";
     }
 }

@@ -50,5 +50,10 @@ namespace ORPI.Web.Repository.Concrete
             _dbSet.Remove(item);
             //_context.SaveChanges();
         }
+
+        public IEnumerable<TEntity> Get()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

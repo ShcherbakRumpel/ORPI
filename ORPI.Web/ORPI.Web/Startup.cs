@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -33,14 +34,17 @@ namespace ORPI.Web
             services.AddDbContext<ApplicationContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddScoped<DbContext, ApplicationContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>();
 
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<IAgencyRepository, AgencyRepository>();
             services.AddSingleton<IAdFileRepository, AdFileRepository>();
-            services.AddTransient<IAgencyService, AgencyService>();
+            services.AddTransient<IEntityService, EntityService>();
+            services.AddHangfire(x => x.UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection")));
 
+           
 
             services.AddMvc();
         }
@@ -48,6 +52,9 @@ namespace ORPI.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseHangfireDashboard();
+            app.UseHangfireServer();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -60,6 +67,7 @@ namespace ORPI.Web
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
 
             app.UseStaticFiles();
 

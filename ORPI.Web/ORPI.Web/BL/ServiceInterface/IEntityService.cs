@@ -7,6 +7,6 @@ namespace ORPI.Web.BL.ServiceInterface
 {
     public interface IEntityService
     {
-        Boolean UpdateAgency(String path);
+        Task UpdateOpri();
     }
 }
