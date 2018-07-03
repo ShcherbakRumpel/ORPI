@@ -31,6 +31,13 @@ namespace ORPI.Web.Controllers
             return Ok();
         }
 
+        [HttpGet("GetAdFiles")]
+        public IActionResult GetAdFiles()
+        {
+            var result = entityService.GetAllAdFile();
+            return Ok(result);
+        }
+
         [HttpGet("[action]")]
         public IEnumerable<WeatherForecast> WeatherForecasts()
         {

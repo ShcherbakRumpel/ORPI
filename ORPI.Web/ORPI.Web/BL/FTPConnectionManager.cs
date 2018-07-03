@@ -44,7 +44,7 @@ namespace ORPI.Web.BL
 
         private void Decompress(String url, String zipFile)
         {
-            Thread.Sleep(500);
+            Thread.Sleep(50000);
             //this._txtFilePath = @"C:\Users\Rumpel\Desktop\1";//use another path
             //ZipFile.ExtractToDirectory(url, @"C:\Users\Rumpel\Desktop\1"); //use another path
             ZipFile.ExtractToDirectory($"{url}{zipFile}", PathConst.TXTFILEPATH);

@@ -20,6 +20,11 @@ namespace ORPI.Web.BL.Services
             uow = _uow;
         }
 
+        public IEnumerable<AdFile> GetAllAdFile()
+        {
+            return uow.AdFileRepository.GetAll();
+        }
+
         public void UpdateOpri()
         {
 
@@ -29,22 +34,34 @@ namespace ORPI.Web.BL.Services
 
         private void UpdateAgency(String path)//
         {
-            FTPConnectionManager connectionManager = CeateConnectionManager(PathConst.AGENCYZIP, PathConst.AGENCYZIP);
-            //new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.SUN.ToString()}/{PathConst.AGENCYZIP}");
-            List<String> list = TextToModelHelper.ToModel(PathConst.TXTFILEPATH + "/"+path);//change path
-            IEnumerable<Agency> agencyList = TextToModelHelper.ModelAgency(list);
-
-            foreach (var agency in agencyList)
+            try
             {
-                uow.AgencyRepository.InsertOrUpdate(agency);
+                FTPConnectionManager connectionManager = CeateConnectionManager(PathConst.AGENCYZIP, PathConst.AGENCYZIP);
             }
+            catch { }
+            finally
+            {
+                List<String> list = TextToModelHelper.ToModel(PathConst.TXTFILEPATH + "/" + path);//change path
+                IEnumerable<Agency> agencyList = TextToModelHelper.ModelAgency(list);
+
+                foreach (var agency in agencyList)
+                {
+                    uow.AgencyRepository.InsertOrUpdate(agency);
+                }
+
+                uow.SaveChanges();
+
+            }
+            
+            //new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.SUN.ToString()}/{PathConst.AGENCYZIP}");
+            
 
             //Parallel.ForEach(agencyList, agency =>
             //{
             //    uow.AgencyRepository.InsertOrUpdate(agency);
             //});
 
-            uow.SaveChanges();
+            
         }
 
         private void UpdateAdFile(String path)

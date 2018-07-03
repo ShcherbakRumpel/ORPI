@@ -8,6 +8,7 @@ namespace ORPI.Web.Repository.Abstract
 {
     public interface IAdFileRepository
     {
+        IEnumerable<AdFile> GetAll();
         void InsertOrUpdate(AdFile item);
     }
 }
