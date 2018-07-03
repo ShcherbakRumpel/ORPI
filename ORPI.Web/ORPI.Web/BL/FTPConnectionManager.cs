@@ -13,7 +13,7 @@ namespace ORPI.Web.BL
     {
         private Object lockObj = new Object();
 
-        public FTPConnectionManager(string urlToZipFile)
+        public FTPConnectionManager(string urlToZipFile, String zipFile)
         {
             // Get the object used to communicate with the server.  
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create(urlToZipFile);
@@ -24,28 +24,31 @@ namespace ORPI.Web.BL
 
             FtpWebResponse response = (FtpWebResponse)request.GetResponse();
             
-            DownloadFile(response.ResponseUri.AbsoluteUri);
+            DownloadFile(response.ResponseUri.AbsoluteUri, zipFile);
             //Decompress("C:/Users/Rumpel/source/repos/ConsoleApp2/ConsoleApp2/bin/Debug/result.zip"); //use another path
-            Decompress(PathConst.SOURCE);
+            Decompress(PathConst.SOURCE, zipFile);
+
             response.Close();
         }
 
-        private void DownloadFile(string url)
+        private void DownloadFile(string url, String zipFile)
         {
             //string myStringWebResource = null;
             WebClient myWebClient = new WebClient();
             myWebClient.Credentials = new NetworkCredential("HASITATION050207", "050207HASITATION");
             //myStringWebResource = url;
-            myWebClient.DownloadFile(url, "result.zip");
+            myWebClient.DownloadFile(url, zipFile);
 
             //Decompress(response.ResponseUri.AbsoluteUri);
         }
 
-        private void Decompress(String url)
+        private void Decompress(String url, String zipFile)
         {
+            Thread.Sleep(500);
             //this._txtFilePath = @"C:\Users\Rumpel\Desktop\1";//use another path
             //ZipFile.ExtractToDirectory(url, @"C:\Users\Rumpel\Desktop\1"); //use another path
-            ZipFile.ExtractToDirectory(url, PathConst.TXTFILEPATH);
+            ZipFile.ExtractToDirectory($"{url}{zipFile}", PathConst.TXTFILEPATH);
+            Thread.Sleep(500000);
         }
     }
 }

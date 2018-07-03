@@ -24,84 +24,95 @@ namespace ORPI.Web.BL.Services
         {
 
             UpdateAgency(PathConst.AGENCY);
-            //UpdateAdFile(PathConst.ADFILE);
+            UpdateAdFile(PathConst.ADFILE);
         }
 
         private void UpdateAgency(String path)//
         {
-            //FTPConnectionManager connectionManager = CeateConnectionManager(PathConst.AGENCYZIP);
+            FTPConnectionManager connectionManager = CeateConnectionManager(PathConst.AGENCYZIP, PathConst.AGENCYZIP);
             //new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.SUN.ToString()}/{PathConst.AGENCYZIP}");
             List<String> list = TextToModelHelper.ToModel(PathConst.TXTFILEPATH + "/"+path);//change path
             IEnumerable<Agency> agencyList = TextToModelHelper.ModelAgency(list);
 
-            var qwe =  uow.AgencyRepository.GetAll();
-
-            //foreach(var agency in agencyList)
-            //{
-            //    uow.AgencyRepository.InsertOrUpdate(agency);
-            //}
+            foreach (var agency in agencyList)
+            {
+                uow.AgencyRepository.InsertOrUpdate(agency);
+            }
 
             //Parallel.ForEach(agencyList, agency =>
             //{
             //    uow.AgencyRepository.InsertOrUpdate(agency);
             //});
-            
+
             uow.SaveChanges();
         }
 
         private void UpdateAdFile(String path)
         {
-            FTPConnectionManager connectionManager = CeateConnectionManager(PathConst.ADFILEZIP);
-            List<String> list = TextToModelHelper.ToModel(PathConst.TXTFILEPATH +"/"+ path);//change path
-            IEnumerable<AdFile> adFileList = TextToModelHelper.ModelAdFile(list);
-
-            Parallel.ForEach(adFileList, adFile =>
+            try
             {
-                uow.AdFileRepository.InsertOrUpdate(adFile);
-            });
+                FTPConnectionManager connectionManager = CeateConnectionManager(PathConst.ADFILEZIP, PathConst.ADFILEZIP);
+            }
+            catch { }
+            finally
+            {
+                List<String> list = TextToModelHelper.ToModel(PathConst.TXTFILEPATH + "/" + path);//change path
+                IEnumerable<AdFile> adFileList = TextToModelHelper.ModelAdFile(list);
 
-            uow.SaveChanges();
+                foreach (var adFile in adFileList)
+                {
+                    uow.AdFileRepository.InsertOrUpdate(adFile);
+                }
+
+                //Parallel.ForEach(adFileList, adFile =>
+                //{
+                //    uow.AdFileRepository.InsertOrUpdate(adFile);
+                //});
+
+                uow.SaveChanges();
+            }
+
         }
 
-        private FTPConnectionManager CeateConnectionManager(String fileName)
+        private FTPConnectionManager CeateConnectionManager(String fileName, String zipFile)
         {
             DateTime dateNow = DateTime.Now;
             FTPConnectionManager connectionManager;
             switch (dateNow.DayOfWeek)
             {
-                //case DayOfWeek.Monday:
-                //    {
-                //        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.MON.ToString()}/{fileName}");
-                //        return connectionManager;
-                //    }
-                //case DayOfWeek.Tuesday:
-                //    {
-                //        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.TUE.ToString()}/{fileName}");
-                //        return connectionManager;
-                //    }
-                //case DayOfWeek.Wednesday:
-                //    {
-                //        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.WED.ToString()}/{fileName}");
-                //        return connectionManager;
-                //    }
-                //case DayOfWeek.Thursday:
-                //    {
-                //        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.THU.ToString()}/{fileName}");
-                //        return connectionManager;
-                //    }
-                //case DayOfWeek.Friday:
-                //    {
-                //        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.FRI.ToString()}/{fileName}");
-                //        return connectionManager;
-                //    }
-                //case DayOfWeek.Saturday:
-                //    {
-                //        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.SAT.ToString()}/{fileName}");
-                //        return connectionManager;
-                //    }
+                case DayOfWeek.Monday:
+                    {
+                        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.MON.ToString()}/{fileName}", zipFile);
+                        return connectionManager;
+                    }
+                case DayOfWeek.Tuesday:
+                    {
+                        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.TUE.ToString()}/{fileName}", zipFile);
+                        return connectionManager;
+                    }
+                case DayOfWeek.Wednesday:
+                    {
+                        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.WED.ToString()}/{fileName}", zipFile);
+                        return connectionManager;
+                    }
+                case DayOfWeek.Thursday:
+                    {
+                        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.THU.ToString()}/{fileName}", zipFile);
+                        return connectionManager;
+                    }
+                case DayOfWeek.Friday:
+                    {
+                        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.FRI.ToString()}/{fileName}", zipFile);
+                        return connectionManager;
+                    }
+                case DayOfWeek.Saturday:
+                    {
+                        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.SAT.ToString()}/{fileName}", zipFile);
+                        return connectionManager;
+                    }
                 case DayOfWeek.Sunday:
                     {
-                        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.SUN.ToString()}/{fileName}");
+                        connectionManager = new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.SUN.ToString()}/{fileName}", zipFile);
                         return connectionManager;
                     }
                 default:

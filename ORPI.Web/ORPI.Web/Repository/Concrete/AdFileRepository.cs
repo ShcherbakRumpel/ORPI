@@ -16,7 +16,7 @@ namespace ORPI.Web.Repository.Concrete
 
         public void InsertOrUpdate(AdFile item)
         {
-            var existingAdFile = Query.Where(s => s.AdFileId == item.AdFileId).FirstOrDefault();
+            var existingAdFile = Query.Where(s => s.AdFileId == item.AdFileId)?.FirstOrDefault();
             if (existingAdFile == null)
             {
                 Create(item);

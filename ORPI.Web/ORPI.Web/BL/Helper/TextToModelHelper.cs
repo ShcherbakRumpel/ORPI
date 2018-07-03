@@ -321,6 +321,7 @@ namespace ORPI.Web.BL.Helper
                 {
                     listAdFile.Add(adFile);
                     adFile = new AdFile();
+                    isFullModel = false;
                 }
                 if (adFile.AdFileId == null)
                 {
