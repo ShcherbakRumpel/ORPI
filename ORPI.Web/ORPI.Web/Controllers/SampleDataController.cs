@@ -25,8 +25,17 @@ namespace ORPI.Web.Controllers
         [HttpGet("Job")]
         public IActionResult Job()
         {
-            BackgroundJob.Enqueue(() => entityService.UpdateOpri());
+            //BackgroundJob.Enqueue(() => entityService.UpdateOpri());
+            //RecurringJob.AddOrUpdate(() => entityService.UpdateOpri(), Cron.Daily);
+            RecurringJob.AddOrUpdate(() => entityService.UpdateOpri(), Cron.MinuteInterval(10));
             return Ok();
+        }
+
+        [HttpGet("GetAdFiles")]
+        public IActionResult GetAdFiles()
+        {
+            var result = entityService.GetAllAdFile();
+            return Ok(result);
         }
 
         [HttpGet("[action]")]

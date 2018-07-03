@@ -14,9 +14,14 @@ namespace ORPI.Web.Repository.Concrete
         {
         }
 
+        public IEnumerable<AdFile> GetAll()
+        {
+            return Query.Include(x => x.Agency).ToList();
+        }
+
         public void InsertOrUpdate(AdFile item)
         {
-            var existingAdFile = Query.Where(s => s.AdFileId == item.AdFileId).FirstOrDefault();
+            var existingAdFile = Query.Where(s => s.AdFileId == item.AdFileId)?.FirstOrDefault();
             if (existingAdFile == null)
             {
                 Create(item);

@@ -21,7 +21,7 @@ namespace ORPI.Web.Repository.Concrete
 
         public void InsertOrUpdate(Agency item)
         {
-            var existingAgency = Query.Where(s=> s.AgencyId == item.AgencyId).FirstOrDefault();
+            var existingAgency = Query.Where(s=> s.AgencyId == item.AgencyId)?.FirstOrDefault();
             if (existingAgency == null)
             {
                 Create(item);
