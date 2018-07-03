@@ -39,8 +39,8 @@ namespace ORPI.Web.BL
             myWebClient.DownloadFile(url, "result.zip");
 
             //Decompress(response.ResponseUri.AbsoluteUri);
-
         }
+
         private void Decompress(String url)
         {
             //this._txtFilePath = @"C:\Users\Rumpel\Desktop\1";//use another path

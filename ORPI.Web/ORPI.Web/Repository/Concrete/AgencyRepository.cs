@@ -14,6 +14,10 @@ namespace ORPI.Web.Repository.Concrete
         {
         }
 
+        public IEnumerable<Agency> GetAll()
+        {
+            return Get();
+        }
 
         public void InsertOrUpdate(Agency item)
         {

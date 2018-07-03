@@ -53,7 +53,7 @@ namespace ORPI.Web.Repository.Concrete
 
         public IEnumerable<TEntity> Get()
         {
-            throw new NotImplementedException();
+            return _dbSet.ToList();
         }
     }
 }

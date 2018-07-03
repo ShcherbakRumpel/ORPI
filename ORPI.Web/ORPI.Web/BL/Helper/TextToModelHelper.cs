@@ -47,6 +47,8 @@ namespace ORPI.Web.BL.Helper
                 {
                     listAgency.Add(agency);
                     agency = new Agency();
+                    isFullModel = false;
+
                 }
                 if (agency.AgencyId == null)
                 {

@@ -2,17 +2,32 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hangfire;
 using Microsoft.AspNetCore.Mvc;
+using ORPI.Web.BL.ServiceInterface;
 
 namespace ORPI.Web.Controllers
 {
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
+        private IEntityService entityService;
+        public SampleDataController(IEntityService _entityService)
+        {
+            entityService = _entityService;
+        }
+
         private static string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
+
+        [HttpGet("Job")]
+        public IActionResult Job()
+        {
+            BackgroundJob.Enqueue(() => entityService.UpdateOpri());
+            return Ok();
+        }
 
         [HttpGet("[action]")]
         public IEnumerable<WeatherForecast> WeatherForecasts()

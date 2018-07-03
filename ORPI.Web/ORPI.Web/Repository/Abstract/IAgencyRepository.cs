@@ -9,5 +9,6 @@ namespace ORPI.Web.Repository.Abstract
     public interface IAgencyRepository
     {
         void InsertOrUpdate(Agency item);
+        IEnumerable<Agency> GetAll();
     }
 }

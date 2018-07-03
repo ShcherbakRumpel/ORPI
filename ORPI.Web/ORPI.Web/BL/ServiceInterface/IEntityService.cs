@@ -7,6 +7,6 @@ namespace ORPI.Web.BL.ServiceInterface
 {
     public interface IEntityService
     {
-        Task UpdateOpri();
+        void UpdateOpri();
     }
 }

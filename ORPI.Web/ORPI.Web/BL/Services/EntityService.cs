@@ -20,28 +20,31 @@ namespace ORPI.Web.BL.Services
             uow = _uow;
         }
 
-        public async Task UpdateOpri()
+        public void UpdateOpri()
         {
-            await Task.Delay(20);
-            lock (lockObj)
-            {
-                UpdateAgency(PathConst.AGENCY);
-            }
-                
+
+            UpdateAgency(PathConst.AGENCY);
             //UpdateAdFile(PathConst.ADFILE);
         }
 
         private void UpdateAgency(String path)//
         {
             //FTPConnectionManager connectionManager = CeateConnectionManager(PathConst.AGENCYZIP);
-            new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.SUN.ToString()}/{PathConst.AGENCYZIP}");
-            List<String> list = TextToModelHelper.ToModel(path);//change path
+            //new FTPConnectionManager($"{PathConst.ORPI}{DayOfWeekEnum.SUN.ToString()}/{PathConst.AGENCYZIP}");
+            List<String> list = TextToModelHelper.ToModel(PathConst.TXTFILEPATH + "/"+path);//change path
             IEnumerable<Agency> agencyList = TextToModelHelper.ModelAgency(list);
 
-            Parallel.ForEach(agencyList, agency =>
-            {
-                uow.AgencyRepository.InsertOrUpdate(agency);
-            });
+            var qwe =  uow.AgencyRepository.GetAll();
+
+            //foreach(var agency in agencyList)
+            //{
+            //    uow.AgencyRepository.InsertOrUpdate(agency);
+            //}
+
+            //Parallel.ForEach(agencyList, agency =>
+            //{
+            //    uow.AgencyRepository.InsertOrUpdate(agency);
+            //});
             
             uow.SaveChanges();
         }
@@ -49,7 +52,7 @@ namespace ORPI.Web.BL.Services
         private void UpdateAdFile(String path)
         {
             FTPConnectionManager connectionManager = CeateConnectionManager(PathConst.ADFILEZIP);
-            List<String> list = TextToModelHelper.ToModel(path);//change path
+            List<String> list = TextToModelHelper.ToModel(PathConst.TXTFILEPATH +"/"+ path);//change path
             IEnumerable<AdFile> adFileList = TextToModelHelper.ModelAdFile(list);
 
             Parallel.ForEach(adFileList, adFile =>

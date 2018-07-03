@@ -53,7 +53,12 @@ namespace ORPI.Web
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseHangfireDashboard();
-            app.UseHangfireServer();
+            app.UseHangfireServer(new BackgroundJobServerOptions
+            {
+                SchedulePollingInterval = TimeSpan.FromMinutes(10),
+                HeartbeatInterval = TimeSpan.FromMinutes(10)
+            });
+            
 
             if (env.IsDevelopment())
             {
