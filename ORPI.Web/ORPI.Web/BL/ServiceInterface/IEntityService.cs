@@ -9,6 +9,8 @@ namespace ORPI.Web.BL.ServiceInterface
     public interface IEntityService
     {
         IEnumerable<AdFile> GetAllAdFile();
+        Boolean ManualUpdateAgency();
+        Boolean ManualUpdateAdFile();
         void UpdateOpri();
     }
 }

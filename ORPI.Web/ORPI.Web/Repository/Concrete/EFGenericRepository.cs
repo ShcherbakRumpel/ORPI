@@ -37,7 +37,6 @@ namespace ORPI.Web.Repository.Concrete
 
         public void Create(TEntity item)
         {
-            if(_dbSet.Find(item) != null) return;
             _dbSet.Add(item);
             //_context.SaveChanges();
         }

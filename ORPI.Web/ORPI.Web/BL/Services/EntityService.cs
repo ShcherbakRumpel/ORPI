@@ -25,6 +25,31 @@ namespace ORPI.Web.BL.Services
             return uow.AdFileRepository.GetAll();
         }
 
+        public Boolean ManualUpdateAgency()
+        {
+            List<String> list = TextToModelHelper.ToModel(PathConst.TXTFILEPATH + "/" + PathConst.AGENCY);//change path
+            IEnumerable<Agency> agencyList = TextToModelHelper.ModelAgency(list);
+
+            foreach (var agency in agencyList)
+            {
+                uow.AgencyRepository.InsertOrUpdate(agency);
+            }
+            return uow.SaveChanges() >= 0;
+        }
+
+        public Boolean ManualUpdateAdFile()
+        {
+            List<String> list = TextToModelHelper.ToModel(PathConst.TXTFILEPATH + "/" + PathConst.ADFILE);//change path
+            IEnumerable<AdFile> adFileList = TextToModelHelper.ModelAdFile(list);
+
+            foreach (var adFile in adFileList)
+            {
+                uow.AdFileRepository.InsertOrUpdate(adFile);
+            }
+
+            return uow.SaveChanges() >= 0;
+        }
+
         public void UpdateOpri()
         {
 

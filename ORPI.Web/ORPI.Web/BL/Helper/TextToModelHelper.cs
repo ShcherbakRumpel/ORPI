@@ -325,6 +325,15 @@ namespace ORPI.Web.BL.Helper
                 }
                 if (adFile.AdFileId == null)
                 {
+                    //if (i > strList.Count) continue;
+
+                    String temp = strList[i];
+                    if (String.IsNullOrEmpty(temp))
+                    {
+                        lastElem--;
+                        continue;
+                    }
+
                     adFile.AdFileId = strList[i];
                     lastElem--;
                     continue;

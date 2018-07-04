@@ -27,7 +27,7 @@ namespace ORPI.Web.Controllers
         {
             //BackgroundJob.Enqueue(() => entityService.UpdateOpri());
             //RecurringJob.AddOrUpdate(() => entityService.UpdateOpri(), Cron.Daily);
-            RecurringJob.AddOrUpdate(() => entityService.UpdateOpri(), Cron.MinuteInterval(10));
+            RecurringJob.AddOrUpdate(() => entityService.UpdateOpri(), Cron.DayInterval(1));
             return Ok();
         }
 
@@ -35,6 +35,20 @@ namespace ORPI.Web.Controllers
         public IActionResult GetAdFiles()
         {
             var result = entityService.GetAllAdFile();
+            return Ok(result);
+        }
+
+        [HttpGet("ManualUpdateAgency")]
+        public IActionResult ManualUpdateAgency()
+        {
+            var result = entityService.ManualUpdateAgency();
+            return Ok(result);
+        }
+
+        [HttpGet("ManualUpdateAdFile")]
+        public IActionResult ManualUpdateAdFile()
+        {
+            var result = entityService.ManualUpdateAdFile();
             return Ok(result);
         }
 
